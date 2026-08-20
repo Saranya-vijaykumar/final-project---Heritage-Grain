@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://heritageandgrain.com/sitemap.xml
