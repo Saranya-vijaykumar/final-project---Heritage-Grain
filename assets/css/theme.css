@@ -290,20 +290,6 @@ aside .card-craft, .hero .card-craft { block-size: auto; }
 .brand-name { font-family: "Fraunces", serif; font-weight: 600; font-size: 1.0625rem; line-height: 1.1; }
 .brand-tag { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--hg-muted-foreground); }
 
-.site-header .nav-craft {
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: nowrap !important;
-  align-items: center !important;
-  margin-bottom: 0 !important;
-  gap: 0.35rem;
-}
-.site-header .nav-craft .nav-item {
-  display: inline-flex !important;
-  align-items: center !important;
-  flex-shrink: 0 !important;
-  white-space: nowrap !important;
-}
 .nav-craft .nav-link {
   display: inline-flex;
   align-items: center;
@@ -389,6 +375,23 @@ aside .card-craft, .hero .card-craft { block-size: auto; }
   }
 }
 
+@media (min-width: 992px) {
+  .site-header .navbar > .nav-craft {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    margin-bottom: 0 !important;
+    gap: 0.35rem;
+  }
+  .site-header .navbar > .nav-craft .nav-item {
+    display: inline-flex !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+  }
+}
+
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .site-header .container-craft {
     max-width: 100% !important;
@@ -410,18 +413,18 @@ aside .card-craft, .hero .card-craft { block-size: auto; }
   .site-header .brand-tag {
     display: none !important;
   }
-  .site-header .nav-craft {
+  .site-header .navbar > .nav-craft {
     gap: 0 !important;
     margin-inline: 0.15rem !important;
   }
-  .site-header .nav-craft .nav-link {
+  .site-header .navbar > .nav-craft .nav-link {
     padding-inline: 0.38rem !important;
     padding-block: 0.35rem !important;
     font-size: 0.8125rem !important;
     white-space: nowrap !important;
     letter-spacing: normal !important;
   }
-  .site-header .nav-craft .dropdown-toggle::after {
+  .site-header .navbar > .nav-craft .dropdown-toggle::after {
     margin-inline-start: 0.2rem !important;
     border-top-width: 0.25em !important;
     border-right-width: 0.25em !important;
@@ -442,20 +445,20 @@ aside .card-craft, .hero .card-craft { block-size: auto; }
 }
 
 @media (min-width: 1200px) and (max-width: 1399.98px) {
-  .site-header .nav-craft {
+  .site-header .navbar > .nav-craft {
     gap: 0.25rem !important;
   }
-  .site-header .nav-craft .nav-link {
+  .site-header .navbar > .nav-craft .nav-link {
     padding-inline: 0.65rem !important;
     font-size: 0.9rem !important;
   }
 }
 
 @media (min-width: 1400px) {
-  .site-header .nav-craft {
+  .site-header .navbar > .nav-craft {
     gap: 0.5rem !important;
   }
-  .site-header .nav-craft .nav-link {
+  .site-header .navbar > .nav-craft .nav-link {
     padding-inline: 0.85rem !important;
     font-size: 0.9375rem !important;
   }
@@ -482,21 +485,49 @@ aside .card-craft, .hero .card-craft { block-size: auto; }
   --bs-offcanvas-width: min(20rem, 88vw);
 }
 .offcanvas-backdrop { inset: 0; block-size: 100vh; block-size: 100dvh; }
-.offcanvas .nav-craft { gap: 0.35rem; display: flex; flex-direction: column; }
-.offcanvas .nav-craft .nav-link { padding-block: 0.75rem; padding-inline: 0.5rem; font-size: 1.05rem; letter-spacing: 0.02em; }
+.offcanvas .nav-craft {
+  gap: 0.35rem;
+  display: flex !important;
+  flex-direction: column !important;
+  flex-wrap: nowrap !important;
+  width: 100% !important;
+  padding: 0 !important;
+}
+.offcanvas .nav-craft .nav-item {
+  display: block !important;
+  width: 100% !important;
+  white-space: normal !important;
+}
+.offcanvas .nav-craft .nav-link {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  padding-block: 0.75rem !important;
+  padding-inline: 0.75rem !important;
+  font-size: 1.05rem !important;
+  letter-spacing: 0.02em !important;
+  white-space: normal !important;
+  border-radius: var(--hg-radius) !important;
+}
+.offcanvas .nav-craft .nav-link:hover,
+.offcanvas .nav-craft .nav-link.active {
+  background: var(--hg-muted) !important;
+  color: var(--hg-primary) !important;
+}
 .offcanvas .dropdown-menu {
   position: static !important;
   transform: none !important;
   inset: auto !important;
-  float: none;
-  inline-size: 100%;
-  border: 0;
-  box-shadow: none;
-  padding-inline-start: 0.75rem;
-  margin-block: 0.25rem 0.5rem;
-  background: transparent;
+  float: none !important;
+  inline-size: 100% !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding-inline-start: 0.75rem !important;
+  margin-block: 0.25rem 0.5rem !important;
+  background: transparent !important;
 }
-.offcanvas .nav-craft .nav-link.active::after { inset-inline: 0.75rem auto; inline-size: 1.75rem; }
+.offcanvas .nav-craft .nav-link.active::after { display: none !important; }
 .offcanvas .dropdown-item { white-space: normal; }
 
 /* Hamburger icon */
