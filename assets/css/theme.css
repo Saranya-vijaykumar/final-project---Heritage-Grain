@@ -911,6 +911,11 @@ aside .card-craft, .hero .card-craft { block-size: auto; }
   letter-spacing: 0.015em;
   display: block;
 }
+.site-footer .brand-name .brand-amp {
+  color: var(--hg-primary) !important;
+  font-style: normal;
+  display: inline-block;
+}
 .site-footer .brand-tag {
   display: block;
   font-size: 0.7rem;
